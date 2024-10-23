@@ -1,3 +1,5 @@
 from django.shortcuts import render
-
-# Create your views here.
+from .models import produkt
+def views_strona_glowna(request):
+    dane_z_modelu = produkt.objects.all()
+    return render(request, 'strona_glowna.html',context={"dane_z_modelu":dane_z_modelu})
