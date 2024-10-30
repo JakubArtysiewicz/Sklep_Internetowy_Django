@@ -1,4 +1,7 @@
-{% for i in dane_z_modelu %} obiekt: {{i}}
-{{i.nazwa}} <br>
-{{i.opis}} <br>
+<h1> <a href="http://127.0.0.1:8000"> SUPER SKLEP </a> </h1><br>
+
+{% for i in dane_z_modelu %}
+
+    <a href="http://127.0.0.1:8000//{{i.id}}">{{i.nazwa}}</a> <br>
+
 {% endfor %}
