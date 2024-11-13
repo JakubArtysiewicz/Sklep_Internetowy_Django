@@ -7,4 +7,6 @@ def views_strona_glowna(request):
 
 def views_strona_kazdego_produktu(request,id):
     dane_z_modelu = produkt.objects.get(id=id)
-    return render(request, 'strona_kazdego_produktu.html',context={"dane_z_modelu":dane_z_modelu})
+    return render(request, 'strona_kazdego_produktu.html',context={"dane_z_modelu":dane_z_modelu,})
+
+# def views_koszyk(request,id):

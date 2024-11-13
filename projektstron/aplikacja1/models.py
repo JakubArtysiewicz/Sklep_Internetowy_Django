@@ -1,5 +1,8 @@
 from django.db import models
 
+# class zamowienia(models.Model):
+#     uzytkownik = models.TextField()
+#     = models
 class zdjecie(models.Model):
     obraz = models.ImageField(upload_to='photos/')
 class produkt(models.Model):
