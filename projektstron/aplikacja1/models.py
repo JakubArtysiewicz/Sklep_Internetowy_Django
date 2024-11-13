@@ -11,4 +11,8 @@ class produkt(models.Model):
     cena = models.FloatField(default=0)
     obraz = models.ForeignKey(zdjecie, on_delete=models.SET_NULL, null=True, blank=True)
 
+class koszyk(models.Model):
+    kupujacy = models.CharField(max_length=100)
+    zamowiony_produkt = models.CharField(max_length=100,default="Null")
+    # zamowiony_produkt = models.ForeignKey(max_length=100, default="Null")
 
