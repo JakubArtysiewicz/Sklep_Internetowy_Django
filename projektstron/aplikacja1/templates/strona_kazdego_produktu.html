@@ -1,25 +1,134 @@
 
-    {% if user.is_authenticated %}
+<!--    {% if user.is_authenticated %}-->
 
-    <h1> <a href="http://127.0.0.1:8000"> SUPER SKLEP </a> </h1><br>
-    <h2> {{dane_z_modelu.nazwa}} </h2><br>
-    <h2> {{dane_z_modelu.cena}} zł</h2>
+<!--    <h1> <a href="http://127.0.0.1:8000"> SUPER SKLEP </a> </h1><br>-->
+<!--    <h2> {{dane_z_modelu.nazwa}} </h2><br>-->
+<!--    <h2> {{dane_z_modelu.cena}} zł</h2>-->
 
-    <h3>Opis:</h3>
-    <h4>{{dane_z_modelu.opis}}</h4>
-    <img src="{{dane_z_modelu.obraz.obraz}}" alt="{{dane_z_modelu.nazwa}}"><br>
-    <button onclick="window.location.href='http://127.0.0.1:8000//koszyk/{{dane_z_modelu.nazwa}}';" > Kup teraz </button>
+<!--    <h3>Opis:</h3>-->
+<!--    <h4>{{dane_z_modelu.opis}}</h4>-->
+<!--    <img src="{{dane_z_modelu.obraz.obraz}}" alt="{{dane_z_modelu.nazwa}}"><br>-->
+<!--    <button onclick="window.location.href='http://127.0.0.1:8000//koszyk/{{dane_z_modelu.nazwa}}';" > Kup teraz </button>-->
 
-    {% else %}
+<!--    {% else %}-->
 
-    <h1> <a href="http://127.0.0.1:8000"> SUPER SKLEP </a> </h1><br>
-    <h2> {{dane_z_modelu.nazwa}} </h2><br>
-    <h2> {{dane_z_modelu.cena}} zł</h2>
+<!--    <h1> <a href="http://127.0.0.1:8000"> SUPER SKLEP </a> </h1><br>-->
+<!--    <h2> {{dane_z_modelu.nazwa}} </h2><br>-->
+<!--    <h2> {{dane_z_modelu.cena}} zł</h2>-->
 
-    <h3>Opis:</h3>
-    <h4>{{dane_z_modelu.opis}}</h4>
-    <img src="{{dane_z_modelu.obraz.obraz}}" alt="{{dane_z_modelu.nazwa}}"><br>
-    <button onclick="window.location.href='http://127.0.0.1:8000/accounts/login/';" > Kup teraz </button>
+<!--    <h3>Opis:</h3>-->
+<!--    <h4>{{dane_z_modelu.opis}}</h4>-->
+<!--    <img src="{{dane_z_modelu.obraz.obraz}}" alt="{{dane_z_modelu.nazwa}}"><br>-->
+<!--    <button onclick="window.location.href='http://127.0.0.1:8000/accounts/login/';" > Kup teraz </button>-->
 
-    {% endif %}
+<!--    {% endif %}-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ dane_z_modelu.nazwa }} - Super Sklep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f8fa;
+            color: #333;
+        }
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 700;
+            font-size: 1.5em;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        h1, h2, h3, h4 {
+            margin: 10px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .price {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .description {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="http://127.0.0.1:8000">SUPER SKLEP</a>
+    </header>
+    <main>
+        {% if user.is_authenticated %}
+            <h1>{{ dane_z_modelu.nazwa }}</h1>
+            <h2 class="price">{{ dane_z_modelu.cena }} zł</h2>
+
+            <img src="{{ dane_z_modelu.obraz.obraz }}" alt="{{ dane_z_modelu.nazwa }}">
+
+            <div class="description">
+                <h3>Opis:</h3>
+                <h4>{{ dane_z_modelu.opis }}</h4>
+            </div>
+
+            <button onclick="window.location.href='http://127.0.0.1:8000//koszyk/{{ dane_z_modelu.nazwa }}';">
+                Kup teraz
+            </button>
+        {% else %}
+            <h1>{{ dane_z_modelu.nazwa }}</h1>
+            <h2 class="price">{{ dane_z_modelu.cena }} zł</h2>
+
+            <img src="{{ dane_z_modelu.obraz.obraz }}" alt="{{ dane_z_modelu.nazwa }}">
+
+            <div class="description">
+                <h3>Opis:</h3>
+                <h4>{{ dane_z_modelu.opis }}</h4>
+            </div>
+
+            <button onclick="window.location.href='http://127.0.0.1:8000/accounts/login/';">
+                Kup teraz
+            </button>
+        {% endif %}
+    </main>
+</body>
+</html>
+
+
 
